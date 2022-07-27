@@ -1,0 +1,107 @@
+.no-border{
+    border:none !important;
+}
+.ic{
+    color:#1f3bb3;
+    margin-right: 10px;
+}
+.nopaddding{
+    padding-top: 5px !important;
+}
+.menu-button{
+    text-align: right;
+}
+.cardtitle{
+    font-weight: 700 !important;
+}
+.no-round{
+    border-radius: 5px!important;
+}
+.main-title{
+    font-weight: 600;
+    font-size: 20px;
+}
+.dash-icon{
+    font-size: 25px;
+}
+.dash-text{
+    margin-top: 10px;
+}
+.cls_button:hover {
+    background: white;
+    cursor: pointer;
+}
+.cls_button{
+    float: right;
+}
+.sticky-top{
+    width: 100% !important;
+}
+.sub_tr{
+    background: aliceblue;
+    border-left: 5px solid red;
+}
+.pagn{
+    background: #8fa3b5 !important;
+    color: black !important;
+}
+.log_button{
+    border: none !important;
+    padding: 0 !important;
+}
+.capitalize{
+    text-transform: capitalize;
+}
+.status-btn{
+    border-radius: 5px !important;
+    padding: 5px !important;
+}
+.form-img{
+    height: 2.7rem !important;
+}
+.thumb-image{
+    border-radius: 4px !important;
+    max-height: 75px;
+    padding: 1px;
+}
+.imageThumb {
+    max-height: 75px;
+    padding: 1px;
+    cursor: pointer;
+  }
+  .pip {
+    display: inline-block;
+    margin: 10px 10px 0 0;
+  }
+  .remove {
+    display: block;
+    color: rgb(66, 126, 255);
+    text-align: center;
+    cursor: pointer;
+  }
+  .remove:hover {
+    background: white;
+    color: black;
+  }
+  .removes {
+    display: block;
+    color: rgb(189, 42, 42);
+    text-align: center;
+    cursor: pointer;
+  }
+  .removes:hover {
+    background: white;
+    color: black;
+  }
+  .table td img{
+    height: auto !important;
+    width: auto !important;
+  }
+
+/* responsive starts */
+@media all and (min-width:900px) and (max-width: 1880px) {
+    .form-img{
+        width: 200% !important;
+    }
+}
+
