@@ -16,6 +16,7 @@ class Admin extends Model
     {
         $query      = Admin::where('user_name', $username)
                                             ->first();
+        $result     = array();                                        
         if(!empty($query))
         {
             $pass_check =  Hash::check($password, $query->password);
@@ -23,16 +24,18 @@ class Admin extends Model
             {
                 $user_id    = $query->id;
                 $user_name  = $query->user_name;
+                $user_type  = $query->user_type;
                 $date       = date('Y-m-d H:i:s');
                 Admin::where('id', $user_id)
                 ->update(['last_logged_in' =>$date]);
+                $result = array("user_id"=>$user_id,"user_type"=>$user_type);
             } 
         } 
         else
         {
-            $user_id ="";
+            $result ="";
         }              
-        return $user_id;
+        return $result;
     }
     public static function insert_user($fields,$dbtable)
     {

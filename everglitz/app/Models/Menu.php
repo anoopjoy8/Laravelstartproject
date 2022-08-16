@@ -76,7 +76,7 @@ class Menu extends Model
                 
                 $query->where('menu_table','like','%'.$srch['table_name'].'%');
             }     
-        }              
+        }           
         return $query ->offset($offset)
                       ->limit(Config::get('constants.PG_LIMIT_AD'))
                       ->get();

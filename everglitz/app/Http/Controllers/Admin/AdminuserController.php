@@ -35,14 +35,15 @@ class AdminuserController extends Controller
 			$data['error_msg'] = validation($val_array);
 			if (empty($data['error_msg'])) {
 				$user    = Admin::get_user($username, $password);
-				if ($user != "") {
+				if (!empty($user)) {
 					if ($remember == 'on') {
 						$this->makeCookie($username, $password);
 					} else {
 						$this->forgetCookie($username, $password);
 					}
 					$request->session()->put('start_project_adminuser', $username);
-					$request->session()->put('start_project_adminid', $user);
+					$request->session()->put('start_project_adminid', $user['user_id']);
+					$request->session()->put('start_project_admintype', $user['user_type']);
 					return redirect('admin/dashboard');
 				} else {
 					session()->flash('error', 'Credentials not matching');

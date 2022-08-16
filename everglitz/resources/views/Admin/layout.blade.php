@@ -149,6 +149,7 @@
                     $menu_status = getStatus(Request::segment(2),$val->active_url);
                     $sub_menu_results = App\Models\SubMenu::get_sub_list($val->id);
                     @endphp
+                    @if(($val->url !="list-admin") || (($val->url == "list-admin") && (session()->get('start_project_admintype') == "admin")))
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('admin/'.$val->url) }}" data-bs-toggle="collapse" data-bs-target="#cl_{{$val->id}}" aria-expanded={{$menu_status['main_accrodian']}}>
                             <!-- <i class="menu-icon mdi mdi-floor-plan"></i> --->
@@ -166,6 +167,7 @@
                         @endforeach
                         @endif
                     </li>
+                    @endif
                     @endforeach
                     @endif
 
