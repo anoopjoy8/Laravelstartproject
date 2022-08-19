@@ -24,6 +24,9 @@ class Authenticate extends Middleware
 		} else if ((Session::get('start_project_admintype') == "staff") && ($path == 'admin/list-admin' || $path == 'admin/add-admin')) {
 			return redirect('admin/dashboard');
 		}
+		else if ((Session::get('start_project_admintype') == "staff") && ($path == 'admin/list-menu' || $path == 'admin/add-menu')) {
+			return redirect('admin/dashboard');
+		}
 		return $next($request);
 	}
 }

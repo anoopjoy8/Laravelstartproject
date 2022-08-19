@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Menu;
+use App\Models\Admin;
 use App\Models\SubMenu;
 use App\Models\General;
 use helpers;
+use Illuminate\Support\Facades\Hash;
 
 
 class MenuController extends Controller
@@ -236,6 +238,42 @@ class MenuController extends Controller
             session()->flash('success', 'Menu Deleted Successfully');
             return redirect('admin/list-menu?page=' . $page);
         }
+    }
+    function changePassword(Request $request)
+    {
+        $data     = ['title' => 'Change Password'];
+        $data['dash_status']   = "";
+        $data['accor_status']  = "true";
+        $data['accor_show']    = "show";
+        $method                = $request->method();
+        if ($method == 'POST') {
+            $data['pass1']       = $request->pass1;
+            $data['pass2']       = $request->pass2;
+            $val_array        = array(
+                "Password" => array($data['pass1'], 'Password required'),
+                "password2" => array(
+                    $data['pass2'],
+                    'Repeat Password required'
+                )
+            );
+            $data['error_msg'] = validation($val_array);
+            if (empty($data['error_msg'])) {
+                if($data['pass1'] == $data['pass2']){
+                    $pass   = Hash::make($data['pass1']);
+                    Admin::change_password($pass);
+                    session()->flash('success', "password Changed Successfully");
+                }
+                else
+                {
+                    session()->flash('error', "passwords not matching");  
+                }
+            }
+            else
+            {
+                session()->flash('error', $data['error_msg']);
+            }
+        }
+        return view('admin.change-password')->with($data);
     }
     private function orderSort($order, $type, $operation)
     {

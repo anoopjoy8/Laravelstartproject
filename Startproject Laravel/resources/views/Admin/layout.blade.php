@@ -178,9 +178,16 @@
                             <span class="menu-title">General Settings</span>
                             <i class="menu-arrow"></i>
                         </a>
+                        @if(($val->url !="list-admin") || (($val->url == "list-admin") && (session()->get('start_project_admintype') == "admin")))
                         <div id="menu1" class="collapse {{$accor_show ?? ""}}" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/list-menu') }}">Manage Menu</a></li>
+                            </ul>
+                        </div>
+                        @endif
+                        <div id="menu1" class="collapse {{$accor_show ?? ""}}" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/change-password') }}">Manage Password</a></li>
                             </ul>
                         </div>
                     </li>

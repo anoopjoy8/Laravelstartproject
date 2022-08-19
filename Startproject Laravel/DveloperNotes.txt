@@ -1,0 +1,2 @@
+Php version => 8.1.7
+Laravel     => 9.19.0

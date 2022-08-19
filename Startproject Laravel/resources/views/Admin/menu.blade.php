@@ -225,7 +225,7 @@
             </tr>
             @endforeach
             @endif
-            
+
           </tbody>
         </table>
         <div class="template-demo">

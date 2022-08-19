@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'], function () {
     Route::match(['get','post'],'update-page',[PageController::class,'Update']);
     Route::get('delete-page',[PageController::class,'Delete']);
 
+    //General Settings
+    Route::match(['get','post'],'change-password',[MenuController::class,'changePassword']);
+
     //Ajax
     Route::get('delete-image',[AjaxController::class,'DeleteImage']);
 

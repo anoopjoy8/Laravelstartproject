@@ -11,6 +11,9 @@
 .menu-button{
     text-align: right;
 }
+.sub-menu{
+    padding-bottom: 0px!important;
+}
 .cardtitle{
     font-weight: 700 !important;
 }
